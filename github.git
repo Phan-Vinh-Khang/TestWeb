@@ -1,0 +1,28 @@
+git init
+create 1 local repo trong project
+project nào có đã chạy git init project đó sẽ có local repo,
+những project chưa chạy git init sẽ chứa có local repo
+
+commit
+create 1 phiên bản code hiện tại vào local repo,server repo
+mỗi lần sẽ commit lại toan bo phiên bản đã có ở local repo vào server repo
+
+git add <file name>
+add vào stage
+<file name> phải lowcase và upcase như tên file
+
+nếu repo server có thay đổi (có commit mới) mà chưa pull về sẽ ko push phiên bản ở local repo của mình lên dc
+
+phải pull code ở server repo về và add stage,commit local lại mới push lên server repo dc(pull code mới nhất về(kèm date-time của file),add lại để cập nhật lại date-time)
+sử dụng date-time mới nhất của file ở server repo và date-time lần cuối pull để check conflict?
+(
+nếu code repo server và local server đều có sẽ merge
+nếu code repo server ko có và local server có đều có sẽ add vào server repo
+nếu code repo server có và local server ko có sẽ conflict
+)?
+git branch
+create 1 branch mới sẽ copy toan bo code tự branch main sang branch mới
+add file,code mới vào branch mới,sau khi chạy ok sẽ merge vào branch main
+nếu file,code add vào branch mới lỗi sẽ fix trước khi merge vào branch main
+branch main: khi đã merge vào branch main code sẽ ko có lỗi (đã test ở branch mới trước đó và code đã ok r)
+git checkout <branchname>

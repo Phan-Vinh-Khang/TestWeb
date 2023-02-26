@@ -1,0 +1,395 @@
+/*
+FLEX:
+ display:flex
+block nền sẽ có properties là flex
+ display:inline-flex
+block nền sẽ thành mblock và sẽ có properties là flex
+
+ flex-direction:row
+nếu mblock height là auto thì sẽ height mblock sẽ dãn theo 100% height block nền(stretc)
+width mblock sẽ co dãn theo content
+ flex-direction:column
+width mblock sẽ là 100% (block)
+height mblock sẽ co dãn theo content
+
+ flex-wrap:wrap
+block sẽ dc đặt ở top left của block nền
+sẽ wrap các mblock lại width và height mblock lúc này sẽ dc wrap và sẽ ko thay đổi size
+nếu block nền thu lại sẽ đẩy mlbock xuống
+nếu block nền có height absolute(100vh) nếu block nền thu lại mlbock sẽ bị đẩy xuống
+giữa các mblock bị đẩy xuống sẽ có khoảng cách top và bottom đều nhau
+ flex-wrap:wrap-reverse
+block sẽ dc đặt ở bottom left của block nền
+còn lại sẽ như wrap
+ flex-wrap:nowrap(default)
+mblock sẽ ko dc wrap lại,khi block nền thu lại sẽ mblock sẽ bị thu theo
+
+ flex-directory:row(default),row-reverse,column,column-reverse
+đặt mblock theo row hoặc col
+
+ align mblock theo chiều ngang:
+ justify-content:space-beetwen(theo chiều ngang)
+align các mblock đều với nhau và 2 block bên cạnh sẽ sát với block nền
+ justify-content:space-around
+align các mblock đều với nhau và có khoảng cách 2 mblock cạnh 
+(khoảng cách giữa các block ở giữa sẽ*2 khoảng cách 2 block ở cạnh)
+ justify-content:space-evenly
+align các mblock đều với nhau và có khoảng cách 2 mblock cạnh
+
+ align mblock theo chiều dọc:
+ align-item:flex-start(default) đặt mblock ở top-left của block nền nếu block nển thu lại < width các mblock các block sẽ bị đẩy xuống
+khoảng cách các mblock sẽ đều với nhau dựa trên block nền
+ align-item:flex-end đặt mblock ở bottom-left của block nền
+ align-item:center đặt mblock ở giữa (vị trí:50% height) của block nền
+
+ align-content:space-around,space-beetwen
+align mblock theo hướng top bottom
+ center,flex-start,flex-end:
+nếu block nển thu lại < width các mblock các block sẽ bị đẩy xuống(như inline-block)
+ space-beetwen: đặt mlbock ở vị trí top-left width block nền < các width mblock sẽ đẩy mblock bị tràn xuống đối xứng với mblock ban đầu
+ space-around:  như space-beetwen nhưng các mblock luôn cách top và bottom block nền 1 khoảng,các khoảng cách mblock với nhau sẽ *2 khoảng cách này
+ 
+ flex:1000(set cho mblock đặt trên block nền),
+1000/(số lượng các mblock) đặt trên block nền
+(1000/3) mỗi mblock sẽ có width là 33%
+
+ order:1
+đặt flex item theo value order
+
+ flex-grow:1 (default valeues 0)
+set width của flex items
+1/flexitem (1/3, mỗi mblock sẽ có widtd 33% theo block nền)
+3/flexitem 3/1 (width mblock sẽ *3)
+
+ flex-shrink:2 (default valeues 1)
+chỉ hoạt động khi flex-wrap:nowarp
+values:2 khi block nền < width mblock, mblock sẽ co lại với width value *2 bt
+
+flex-basis:200px
+set width cho flexitem
+
+ flex:0 0 0 (shorthand)
+
+ align-self:center,flex-start,flex-end
+chỉ sử dụng cho flex items
+luôn override align-item properties
+ */
+/*overflow:hidden sẽ ẩn phần vượt qua width và height block mblock dc đặt trên dc đặt trên block nền có properties này*/
+/*nếu có 2 selector css cùng 1 name sẽ ưu tiên selector viết mới nhất(nằm ở dưới)*/
+/*
+    nếu value của margin < 0 thì tầng margin sẽ kéo theo các tầng phía trên theo(border,padding,block)
+cho dù tầng block là 1 số absolute
+    value của padding ko thể < 0
+*/
+/*
+@media nếu ko có mediatype thì sẽ là all and (@media (max-width:500px))
+nếu chỉ có media type và ko có keyword not,only thì sẽ là only (@media screen and (max-width:500px))
+nếu có media type thì phải thêm and giữa mediatype và mediafeature
+/*
+    max-width sẽ theo width dc đặt(width:800vw, max-width:100%, max-width100% lúc này
+sẽ là 800px,50% sẽ là 400px)
+    nếu block nền width:100% và block trên block nền width là 1 số absolute(800px,...)
+và max-width:100% ,lúc này nếu width block nền có số width px nhỏ hơn 800px(500px)
+block trên block nền lúc này sẽ là max-width 100% dựa theo block nền(500px),
+nếu block nền lớn hơn 800px block trên block nền sẽ là 800px(max-width:100%(width:800px))
+*/
+/*
+web responsive:
+min-width:1000px (pc)
+min-width:740 và max-width:999 (tablet)
+max-width:499 (dt)
+*/
+/*chỉ padding mới kéo dc bottom(height của block nền:auto) tầng block của block nền*/
+/*nếu 2 block float cùng 1 vị trí block dc đặt sau sẽ float cao hơn block dc đặt trước*/
+/*giữa các mblock,mblock-inline dc đặt sẽ có khoáng cách nhất định với nhau khi đặt cạnh nhau(4px)*/
+/*padding sẽ kéo theo block nền theo chiều below nếu block nền height là auto
+nếu padding-top chạm cạnh block nền lúc đó element sử dụng padding sẽ bị đẩy xuống
+*/
+/*1 mblock inline(padding,margin,....) sẽ ko bị tác động bởi padding,...của block và mblock khi dc đặt bên cạnh*/
+/*nếu mblock đặt cạnh block default sẽ có 1 khoảng cách nhỏ*/
+/*properties transform: có thể điều chỉnh vị trí của block dựa trên block nền*/
+/*vision của block,mblock là transparent*/
+/*1 block to co thể đặt trên 1 block nền nhỏ hơn*/
+/*1 block co width và height là 1 số px,... cố định:
+block đặt trên block này nếu có chiều width or height dài hơn số px cố định của block nền block nền vẫn sẽ ko co dãn theo block trên
+1 block co width và height là relative:
+block nền sẽ co dãn theo block đặt trên nó
+*/
+/*block sở hữu properties float sẽ thành mblock*/
+/*properties text-align sẽ tác động lên tất cả block nằm trên nó*/
+/*top bottom left right sẽ ko hoạt động khi chưa có properties position*/
+.text-align+p {
+    /*p liền kề sau.text-align thì active*/
+    text-align: center;
+}
+
+.text-align {
+    width: 24.5%;
+    height: auto;
+    background-color: darkcyan;
+    display: inline-block;
+    text-align: center;
+    margin-top: 250px;
+}
+
+.position-sticky {
+    margin-top: 50px;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(156, 38, 121);
+    display: inline-block;
+    position: sticky;
+    /*
+    block sẽ dc đặt ở vị trí spectified
+    khi vision browser lướt ra khỏi element này thì sẽ kéo element này theo vision browser
+    chiếm vị trí tại vị trí spectified
+    điều chỉnh vị trí như relative
+    khi có properties:
+    top: nếu khoảng cách giữa top-vision browser và element< values dc chỉ định vision browser sẽ kéo element này theo
+    (đặt 1 block dành cho việc sticky ở top vision browser)
+    */
+    bottom: 0px;
+}
+
+.position-fixed {
+    width: 200px;
+    height: 200px;
+    background-color: aquamarine;
+    display: inline-block;
+    position: fixed;
+    /*như absolute nhưng sẽ theo block vision broswser
+    */
+    bottom: 0px;
+    right: 0;
+}
+
+body {
+    height: 10000px;
+}
+
+.position-absolute {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    background-color: cornflowerblue;
+    position: absolute;
+    /*BLOCK SẼ HIỂN THỊ THEO VỊ TRÍ SPECIFIED VÀ KHÔNG CHIẾM VỊ TRÍ
+     NẾU KHÔNG SPECIFIED VỊ TRÍ BLOCK SẼ HIỂN THỊ Ở DEFAULT VÀ KHÔNG CHIẾM VỊ TRÍ
+    vị trí element hiển thị sẽ dc điều chỉnh theo block nền gần nhất dc đặt propertie position
+    lúc này values 4 góc block nền top bottom left right sẽ là 0,0,0,0 vị trí element sẽ dc điều chỉnh theo values này
+    nếu ko tìm thấy properties position gần nhất, block sẽ điều chỉnh vị trí dựa trên block body
+    padding border margin của block và block nền vẫn sẽ ảnh hưởng đến vị trí block absolute
+    */
+    top: 2800px;
+    left: 0px;
+}
+
+.position-relative {
+    width: 200px;
+    height: 200px;
+    background-color: darksalmon;
+    display: inline-block;
+    position: relative;
+    /*relative: hiển thị vị trí đặt block,
+    block vẫn sẽ dc đặt ở vị trí default nhưng sẽ hiển thị theo position dc dặt
+    */
+    top: 220px;
+    left: 200px;
+}
+
+.bgs {
+    width: 50%;
+    height: 50vh;
+    background: center/contain no-repeat
+        /*xem thêm trên website*/
+        url(https://viettelhochiminh.com.vn/wp-content/uploads/2022/05/gai-xinh-cosplay-Joan-The-Arc-goi-cam-5.jpg);
+}
+
+.bgorigin {
+    width: 50%;
+    height: 50vh;
+    background-image: url(https://viettelhochiminh.com.vn/wp-content/uploads/2022/05/gai-xinh-cosplay-Joan-The-Arc-goi-cam-5.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 20px;
+    border: 5px dashed black;
+    background-position: center;
+    /*vị trí ảnh đặt trên block,padding,border*/
+    background-origin: content-box;
+    /*defailt ảnh sẽ dc đặt trên padding của bg-image*/
+}
+
+.bgimg {
+    /*default width block là 100%*/
+    width: 50%;
+    height: 50vh;
+    background-position: center;
+    /*vị trí ảnh đặt trên block,padding,border*/
+    background-image:
+        /*linear-gradient(0deg,rgba(43, 231, 43,0.5),rgba(180, 1, 141,0.5)),*/
+        url(https://viettelhochiminh.com.vn/wp-content/uploads/2022/05/gai-xinh-cosplay-lien-quan-13.jpg);
+    background-size: contain;
+    /* cotain: kéo ảnh đến khi chạm đến width or height của block or padding or border thì dừng
+               block width>height thì sẽ không bao phủ dc width
+               block height>width thì sẽ không bao phủ dc height
+
+       cover : kéo ảnh(từ góc height bên phải của ảnh) đến khi cả width và height đều chạm đến block or padding or border
+               block width>height khi kéo chạm đến width của block thì ảnh sẽ mất phần dưới
+               block height>width khi kéo chạm đến height của block thì ảnh sẽ mất phần bén trái
+    */
+    background-repeat: no-repeat;
+}
+
+div.boxsizing {
+    /*width height default sẽ set cho block, khi có box-sizing thì w,h sẽ set cho pd và border
+    lúc này block sẽ tự điều chỉnh lại kích cỡ*/
+    width: 200px;
+    height: 200px;
+    background-color: chocolate;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+div.testpd {
+    /*content sẽ hiển thị ở block*/
+    width: 50px;
+    /*các properties sẽ tác động trên block và pd*/
+    height: 50px;
+    /*pd có kích cỡ theo block*/
+    display: inline-block;
+    /*display: block ,padding border margin sẽ là block (default element 100%width) điều chỉnh block 200px mg vẫn là 100%width(default values),
+    sẽ ko thể điều chỉnh mg bên phải về cùng kích thước với block*/
+    /*display: inline ,block padding border margin sẽ theo kích cỡ(w,h) nội dung*/
+    /*display: inline-block(mblock) ,margrin sẽ điều chỉnh theo kích cỡ block
+    và margin có thể điều chỉnh*/
+    /*mblock thì default sẽ là inline-block?*/
+    background-color: orange;
+    padding-top: 10px;
+    border: 1px solid red;
+}
+
+div.testmg {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    /*display: block ,padding border margin sẽ là block (default element 100%width) điều chỉnh block 200px mg vẫn là 100%width(default values),
+    sẽ ko thể điều chỉnh mg bên phải về cùng kích thước với block*/
+    /*display: inline ,block padding border margin sẽ theo kích cỡ(w,h) nội dung*/
+    /*display: inline-block(mblock) ,margrin sẽ điều chỉnh theo kích cỡ block
+    và margin có thể điều chỉnh*/
+    /*mblock thì default sẽ là inline-block?*/
+    background-color: yellowgreen;
+    margin-top: 10px;
+    border: 1px solid red;
+}
+
+div p::selection {
+    /*hoạt động khi kéo chọn*/
+    background-color: aqua;
+    color: pink;
+}
+
+div p::first-letter {
+    font-size: 25px;
+}
+
+div::first-line {
+    /*tác động lên block đầu trong 1 block so huu properties này (ở đâu là dòng đầu của block div)*/
+    font-weight: bold;
+}
+
+/*trong 1 block có after,after luôn ở last ,before luôn ở top*/
+.backgroundcolor::before {
+    /*new block on block div*/
+    content: "";
+    width: 50px;
+    height: 50px;
+    background-color: orange;
+    display: block;
+}
+
+/*không thể tồn tại 2 after or 2 before trong cùng 1 block*/
+.backgroundcolor::after {
+    /*new block on block div*/
+    content: "";
+    width: 50px;
+    height: 50px;
+    background-color: blueviolet;
+    display: block;
+}
+
+div.pseudo.after::after {
+    /*pseudo element*/
+    content: "(" attr(data-title)")";
+}
+
+/*first child,last-child,nth-child(n)
+div>p:first-child :lúc này p phải là block dc đặt đầu tiên
+nếu trên block p có 1 mblock,block khác(a,img,....) p lúc này sẽ ko nhận first-child
+*/
+p:first-child {
+    /*pseudo classes*/
+    color: goldenrod;
+}
+
+a:hover {
+    /*pseudo classes*/
+    color: red;
+}
+
+.colorred {
+    color: red;
+}
+
+p.colorred {
+    color: darkturquoise;
+}
+
+.colorgreen {
+    color: darkgreen
+}
+
+.coloraqua {
+    color: aqua;
+}
+
+.colorviolet.fontitalic {
+    color: deeppink;
+    font-style: italic;
+}
+
+.colorviolet.fontitalic.coloraqua {
+    color: rgb(177, 94, 94);
+    font-style: italic;
+    font-size: 50px;
+}
+
+.colorviolet.fontitalic.coloraqua {
+    color: rgb(177, 94, 94);
+    font-style: italic;
+    font-size: 27px;
+}
+
+/*nếu có cùng tên class sẽ ưu tiên class ở dưới*/
+/*sẽ ưu tiên chạy selector chi tiet hơn*/
+/*nếu khác tên class nhưng cùng properties sẽ ưu tiên class ở dưới*/
+/*nếu tên class có khoảng trống với nhau thì tên class ở sau sẽ là child của class phía trước*/
+/*nếu tên class không có khoảng trống với nhau thì nó lả name,class name (index.html line 32)*/
+/*properties html kiểm tra selector ở .css có tồn tại hay không. Không phân biệt thứ tự*/
+.colorviolet.fontitalic {
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.colorviolet {
+    color: blueviolet;
+}
+
+.fontitalic {
+    font-style: italic;
+}
+
+span.box {
+    color: aqua;
+}

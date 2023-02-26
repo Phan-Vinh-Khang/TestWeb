@@ -1,0 +1,126 @@
+<!DOCTYPE html5>
+<html>
+    <head>
+        <title> Test Web new</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+<!--mỗi element đều có style margin riêng-->
+        <p>tester</p>
+        <p>trực tiếp</p>
+        <a href="www.fullstack.edu.vn">link f8a</a>
+        <!-- nếu chỉ điều chỉnh 1 trong 2 width or height thì properties còn lại sẽ auto điều chỉnh theo có hợp lệ ảnh-->
+        <img style="width:10%;" src="https://preview.redd.it/uu9qvfu035901.jpg?auto=webp&s=b794f958eb5c94b5e8dfd9003d8069e0484e1e2b" alt="">
+        <!--default widtd sẽ là 100%, height sẽ là auto, 1 element không thể đặt height là % nếu là child của 1 element có height là auto -->
+        <!--để có thể điều chỉnh % cho height cho 1 element cần phải cho 1 height cố định cho là element>element muốn điều chỉnh %-->
+        <label for="">aa</label>
+        <label for="">bb</label><!--mblock-->
+        <ul> <!--block-->
+            <li><!--mblock-->
+                list item 1
+            </li>
+            <li>
+                list item 2
+            </li>
+            <li>
+                list item 3
+            </li>
+            <li>
+                list item 4
+            </li>
+        </ul>
+        <table class="colorgreen"style="display: inline;">
+            <thead class="colorgreen fontitalic aw colorviolet coloraqua"> <!-- sẽ ưu tiên 1 selector trong style.css có tên class xuất hiện nhiều nhất, sau đó mới tới từng selector riêng nếu chúng tồn tại,class name nào không tồn tại trong .css sẽ dispose-->
+                <th>STT</th>
+                <th>Ten</th>
+                <th>SDT</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Nguyen Van A</td>
+                    <td>123</td>
+               </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Nguyen Van B</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Nguyen Van C</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Nguyen Van D</td>
+                    <td>123</td>
+                </tr>
+            </tbody>
+        </table>
+        <span for=""></span>
+        <input type="checkbox">
+        <div>
+        <input type="radio" name="gioitinh" id="">
+        <input type="radio" name="gioitinh" id="">
+        <input type="radio" name="gioitinh" id="">
+         </div>
+         <div>
+            <input type="radio" name="gioitinh2" id="">
+            <input type="radio" name="gioitinh2" id="">
+            <input type="radio" name="gioitinh2" id="">
+        </div>
+        <button> login</button>
+        <span class="box">aa</span>
+        <span class="box">bb</span>
+        <span>cc</span>
+        <span>dd</span>
+        <label class ="colorred" for="">aaaaaa</label>
+        <p class="colorred">aaaaaa</p>
+        <div class="pseudo after" data-title="tester">
+        </div>
+        <div class="pseudo after" data-title="tester1">
+        </div>
+        <div>
+            <p>test first child</p>
+            <p>test first child</p>
+            <p>test first child</p>
+        </div>
+        <div>
+            <p>test first child</p>
+            <p>test first child</p>
+            <p>test first child</p>
+        </div>
+        <p>test first child</p>
+        <div class="backgroundcolor">
+            <p>test content của after và before</p>
+            <p>test content của after và before</p>
+            <p>test content của after và before</p>
+            <p>test content của after và before</p>
+        </div>
+        <br/><br/>
+        <div class="testpd">
+            test content pd
+        </div>
+        <div class="testmg">
+            test content mg
+        </div>
+        <div class="boxsizing">
+            test boxsizing
+        </div>
+        <div class="bgimg">bg img</div>
+        <div class="bgorigin">bg origin</div>
+        <div class="bgs">bgs</div>
+        <div class="position-relative">relative</div>
+        <div class="position-absolute">absolute</div>
+        <div class="position-fixed">fixed</div>
+        <div class="position-sticky">sticky</div>
+        <div></div>
+        <div class="text-align"> <p>test align</p> </div>
+        <div class="text-align"> <p>test align</p> </div>
+        <div class="text-align"> <p>test align</p> </div>
+        <div class="text-align"> <p>test align</p> </div>
+        <p>test align</p>
+    </body>
+</html>

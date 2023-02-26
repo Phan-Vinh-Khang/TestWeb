@@ -1,0 +1,48 @@
+repo local sẽ mất khi tắt?
+
+commit
+các thay đổi ở repo
+commit 1 //file hiện tại
+commit 2 //file,update trước đó (ctrl z)
+commit 3 //file,update trước đó (ctrl z2)
+commit 4 //file,update trước đó (ctrl z3)
+
+git init
+initialize 1 repository ở pc local với folder project hiện tại
+git add [file name],git add .(add tất cả file ở folder hiện tại)
+add file vào staging area (nơi lưu tạm)
+
+git commit -m "[des]"
+xác nhận lưu file vào repo local
+nếu file đã tồn tại sẽ xem file đã lưu trước đó và file hiện tại có sự thay đổi gì
+sẽ lưu từ "update" với tên file trước đó
+
+git push
+push từ local commit lên server commit
+sẽ ko thể push nếu ở server commit có update file
+(tránh trường hợp replace file,.... của người commit trước)
+phải pull folder từ server commit về trước (xem có bị replace hay người commit trước cập nhật gì thêm hay ko)
+git pull
+update commit, file mới nhất từ server commit về máy
+nếu commit server có update sẽ ko thể commit server file trước đó đã xác nhận lưu ở local
+phải pull từ server commit và add commit local lại từ đầu mới có thể commit server
+
+git status
+sẽ xem ở file trong folder hiện tại có cập nhật gì mới so với file ở commit local không
+nếu có sẽ thông báo "có sự thay đổi ở file [name]",có file mới
+
+git log
+xem thông tin vừa commit(xác nhận lưu file vào repo local)
+
+git branch
+xem local hiện tại có bao nhiêu branch và đang ở branch nào
+
+git checkout [name]
+chuyển branch
+git checkout [id]
+chuyển sang tình trạng file khi vừa mới lưu đến file [id]
+git checkout -b "[name]"
+init và clone toàn bộ file từ commit local sang branch mới và chuyển branch
+
+git merge [repo name]
+replace những file mới và file đã cập nhật từ [repo name] vào repo hiện tại
