@@ -1,7 +1,7 @@
 git init
 create 1 local repo trong project
 project nào có đã chạy git init project đó sẽ có local repo,
-những project chưa chạy git init sẽ chứa có local repo
+những project chưa chạy git init sẽ chưa có local repo
 
 commit
 create 1 phiên bản code hiện tại vào local repo,server repo
@@ -26,3 +26,6 @@ add file,code mới vào branch mới,sau khi chạy ok sẽ merge vào branch m
 nếu file,code add vào branch mới lỗi sẽ fix trước khi merge vào branch main
 branch main: khi đã merge vào branch main code sẽ ko có lỗi (đã test ở branch mới trước đó và code đã ok r)
 git checkout <branchname>
+
+rmdir .git 
+remove file .git,xóa local repo,remote origin server,....
