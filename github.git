@@ -29,3 +29,7 @@ git checkout <branchname>
 
 rmdir .git 
 remove file .git,xóa local repo,remote origin server,....
+
+left taskbar
+U file mới create chưa dc commit vào repo
+M file đã create đã có trong repo nhưng bị modify ở workspace 

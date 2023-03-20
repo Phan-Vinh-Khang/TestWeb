@@ -56,7 +56,7 @@ useEffect(()=>{},[])
 chỉ reload 1 lần
 sau khi reload 1 lần sẽ check data static và arg2(đặt [] ở arg2 sẽ copy data static trước đó sang data static hiện tại)
 
-useEffect(()=>{},[var])
+useEffect(()=>{},[state])
 nếu có nhiều useState() sử dụng trong funcreturnvềelement ,muốn check data static hiện tại và trước đó của useState() nào, đặt var useState() vào useEffect() để check
 có thể đặt var useState() vào arg2, nếu static value var hiện tại giống với static value var trước đó sẽ ko reload nữa
 sẽ ko reload nữa nếu data trong static data giống với static data trước đó
@@ -97,9 +97,52 @@ có thể sử dụng useRef() và useEffect() để ref đến value static use
 sau khi reload và return element xong mới chạy useEffect() để ref lại useRef vào static useState() hiện tại
 trước khi chạy useEffect useRef vẫn còn ref vào static trước đó
 có thể ref đến element
-<p ref={testref}>
+<p ref={testref}> //testref sẽ ref đến element này
 <p/>
 
+memo()
+sử dụng khi ko muốn 1 funcreturnvềelement reload lại
+memo() sẽ check prop của funcreturnvềelement có bị thay đổi hay ko nếu có 1 prop value thay đổi so với trước đó, funcreturnvềelement sẽ reload lại
+memo() sẽ sử dụng === để check prop có bị thay đổi hay ko
+nếu 1 funcreturnvềelement cần reload lại sau khi value static useState() thay đổi ko cần sử dụng memo,
+nếu sử dụng memo vẫn reload lại bt khi value bị thay đổi nhưng sẽ k cần thiết
 
+callBack(()=>{},[]) và memo()
+mỗi lần reload các func trong funcreturnvềelement sẽ create 1 static mới
+sử dụng var w=callBack(,[]) để chạy 1 lần(create static 1 lần những lần reload sau sẽ ko create 1 static mới)
+sau đó w sẽ ref vào static đó
+nếu deps bị thay đổi sẽ create 1 static mới và w sẽ ref vào static mới
 
+useMemo(,[state])
+sau khi reload check state hiện tại và trước đó có thay đổi ko
+nếu có thay đổi chạy func trong useMemo() còn ko thì ko chạy
+sử dụng để ko bị load những func,code ko can thiet mỗi khi reload funcreturnvềelement
+nếu deps thay đổi mỗi khi reload mới chạy func trong useMemo()
+
+var [reducer,dispatch]=useReducer(func,static state)
+create 1 static stateReducer
+reducer sẽ ref static state
+dispatch sẽ ref vào func
+call dispatch sẽ return về 1 static state sau đó sẽ reload và reducer sẽ ref vào static vừa create
+
+createContext()
+create 1 Context() để wrap elements
+các elements dc wrap sẽ có thể sử dụng dc value của Context()
+useContext()
+sử dụng value của Context() trong 1 func dc specify
+
+CSS module
+đặt lại tên CSS của từng filename CSS
+đặt lại 1 name unique cho từng classname trong file css
+return về 1 obj
+(name trong file css sẽ như var và sẽ  refvào)
+thường đặt classname theo camelcase
+
+Router,Routes,Route,Link
+Ấn vào link <a href="test"></a>
+chỉ có 1 Router wrap toan bo trang
+1 Routes sẽ wrap các Route
+1 Route ref đến funcreturnvềelement khi path == href của link <a>
+Link sẽ thay thế element <a>
+Load funcreturnvềelement ko cần load lại trang
 */
