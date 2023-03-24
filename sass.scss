@@ -1,0 +1,40 @@
+/*
+có thể sử dụng $ để deleard var
+$test=red
+có thể nested code
+ko cần viết lại properties css khi thêm từ classname
+có sass
+.header{
+    background-color:pink;
+    &-inner{
+        color:white;
+    }
+}
+ko có sass
+.header{
+background-color:pink;
+}
+.inner{
+   color:white; 
+}
+sau đó sử dụng className="header inner"
+nhưng khi phải sử dụng 1 classname có tên header-inner và có các properties css
+như sử dụng cả 2 phải đặt viết lại properties
+.header-inner{
+background-color:pink;
+color:white;
+}
+
+Mixin classnames
+@mixin bgc($color){
+    backround-color:$color;
+}
+.header{
+    bgc(white) //sẽ call func và return
+}
+@mixin bgc($color:pink){ //defailt value sẽ là pink
+    backround-color:$color;
+}
+
+import file css khác vào file css hiện tại
+*/

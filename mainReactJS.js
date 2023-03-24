@@ -145,4 +145,8 @@ chỉ có 1 Router wrap toan bo trang
 1 Route ref đến funcreturnvềelement khi path == href của link <a>
 Link sẽ thay thế element <a>
 Load funcreturnvềelement ko cần load lại trang
+
+import
+nếu ko spicify tên file khi import thì sẽ ref đến file index trong thư mục
+nếu export có {} thi phai import {}
 */
