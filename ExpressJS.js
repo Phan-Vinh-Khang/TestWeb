@@ -46,4 +46,16 @@ sử dụng get post put delete trong router(sử dụng post để thêm data v
 Router URL website to controller chỉ ref theo router GET
 sử dụng tag <form> có thể ref theo router POST hoặc GET
 hoặc sử dụng platform API có thể ref theo router POST,PUT,DELELE,....
+
+async function ,await query
+select data trong table phải chờ 1 lúc mới return,
+sử dụng async và await sẽ đợi khi return data mới tiếp tục chạy
+
+Sequelize
+sử dụng để query trong terminal để create table,....
+
+trong file models/index.js var db sẽ ref vào database, sử dụng var này để query
+create file table trong models để ref vào dc khi sử dụng var db,
+các properties file trong models phải có trong database nếu ko lúc query sẽ error
+(file có column Des trong table products nhưng database lại ko có,lúc chạy select ko có column des trong db sẽ error)
 */
