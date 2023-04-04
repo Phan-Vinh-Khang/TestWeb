@@ -24,12 +24,16 @@ server return data,html to client
 ref.params return obj data from client 
 properties obj sẽ là :var trong reftocontroller
 properties obj sẽ ref vào value url
+action,link dc active với get,post,put,....sẽ hiển thị path trên url
+sử dụng GET controller chỉ nhận dc 1 value data từ client
 
 POST
 luu data
 ref.body return obj data from client
 properties obj sẽ là name trong tag input
 properties obj sẽ ref vào value input
+sử dụng POST controller có thể nhận dc nhiều value data client
+(sử dụng POST và ref.params.var để ref vào data url vẫn dc nhưng các dev thuong ko dùng như vậy(RESTful))
 
 Client gui data to controller phải có
 <form action="" method="POST">
@@ -47,10 +51,6 @@ Router URL website to controller chỉ ref theo router GET
 sử dụng tag <form> có thể ref theo router POST hoặc GET
 hoặc sử dụng platform API có thể ref theo router POST,PUT,DELELE,....
 
-async function ,await query
-select data trong table phải chờ 1 lúc mới return,
-sử dụng async và await sẽ đợi khi return data mới tiếp tục chạy
-
 Sequelize
 sử dụng để query trong terminal để create table,....
 
@@ -58,4 +58,9 @@ trong file models/index.js var db sẽ ref vào database, sử dụng var này �
 create file table trong models để ref vào dc khi sử dụng var db,
 các properties file trong models phải có trong database nếu ko lúc query sẽ error
 (file có column Des trong table products nhưng database lại ko có,lúc chạy select ko có column des trong db sẽ error)
+
+JS sẽ readline và chạy line đó và tiếp tục readline và chạy line tiếp theo
+line1 //line1 cần 3s để return js sẽ ko chờ xử lí xong line1,sau khi read và chạy line1 khi line1 đang sử lí js sẽ tiếp tục read và chạy line2
+line2 //nếu line2 cần data của line1 để xử lí sẽ error(line1 chưa return về data)
+sử dụng async và await để xử lí xong line1 mới chạy line2
 */
