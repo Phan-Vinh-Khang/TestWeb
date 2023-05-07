@@ -63,4 +63,5 @@ JS sẽ readline và chạy line đó và tiếp tục readline và chạy line 
 line1 //line1 cần 3s để return js sẽ ko chờ xử lí xong line1,sau khi read và chạy line1 khi line1 đang sử lí js sẽ tiếp tục read và chạy line2
 line2 //nếu line2 cần data của line1 để xử lí sẽ error(line1 chưa return về data)
 sử dụng async và await để xử lí xong line1 mới chạy line2
+await cho return ve data mới tiếp tục chay
 */
