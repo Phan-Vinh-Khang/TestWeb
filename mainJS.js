@@ -213,4 +213,6 @@ obj={
         test2:'a'
     }
 }
+var sẽ ref đến static data thì dung
+var1->var2->var3->static data(dung)(var1->static data)
  */
