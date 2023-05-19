@@ -149,4 +149,5 @@ Load funcreturnvềelement ko cần load lại trang
 import
 nếu ko spicify tên file khi import thì sẽ ref đến file index trong thư mục
 nếu export có {} thi phai import {}
+có thể khi call funcreturnvềelement sẽ có các properties default do lib thêm vào
 */

@@ -194,4 +194,23 @@ spread có thể ref cả var và values (toàn bộ arg)
     test(1,2,3,"w",d="d2")
     Nếu sử dụng cho
 )
+...obj sẽ create 1 obj tuong tu
+nhưng như spicify vào 1 properties trong obj,data trong properties đó sẽ bị mat
+obj={
+    test:{
+        test1:'a',
+        test2:'b
+    }
+    test2:{
+        test1:'c',
+        test2:'d'
+    }
+}
+{
+    ...obj,
+    test2:{ (spicify properties test2,data test2 sẽ bị mất)
+        ...obj.test2, (properties test2 ref vào 1 obj có nhiều properties muốn thay đổi 1 properties và giữ lại toàn bộ properties khác su dung spread)
+        test2:'a'
+    }
+}
  */
