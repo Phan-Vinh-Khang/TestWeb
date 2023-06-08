@@ -150,4 +150,7 @@ import
 nếu ko spicify tên file khi import thì sẽ ref đến file index trong thư mục
 nếu export có {} thi phai import {}
 có thể khi call funcreturnvềelement sẽ có các properties default do lib thêm vào
+
+khi setState sẽ create 1 data static func returnvềelement với state mới
+func vừa create sẽ bắt đầu chạy cùng lúc với func trước đó nếu func trước đó vẵn chưa chạy xong sau khi setState
 */
