@@ -153,4 +153,7 @@ có thể khi call funcreturnvềelement sẽ có các properties default do lib
 
 khi setState sẽ create 1 data static func returnvềelement với state mới
 func vừa create sẽ bắt đầu chạy cùng lúc với func trước đó nếu func trước đó vẵn chưa chạy xong sau khi setState
+
+khi vào link hoặc sử dụng url để đến 1 trang nào đó sẽ luôn reload func <App/> lại tu dau
+nhưng nếu link đó dc sử dụng Route <Link> hoặc chuyển hướng sẽ k reload lại func <App/>
 */
