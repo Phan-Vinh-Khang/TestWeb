@@ -156,4 +156,14 @@ func vừa create sẽ bắt đầu chạy cùng lúc với func trước đó n
 
 khi vào link hoặc sử dụng url để đến 1 trang nào đó sẽ luôn reload func <App/> lại tu dau
 nhưng nếu link đó dc sử dụng Route <Link> hoặc chuyển hướng sẽ k reload lại func <App/>
+
+1 func dc call nếu var func ref vào 1 doi so la func,var func đó sẽ ref vào datastatic của func đó(sẽ sử dụng dc cac var,datastatic bên ngoài func)
+1 var func ref vào doi so var func sẽ ref đến staticdata (ko phai create 1 data tuong tu sang ben func dc call)
+
+call func dùng doi so obj va var func dùng var obj với các properties để ref vào data doi so
+sẽ k cần dung vị trí (các properties của car obj sẽ tìm dung properties để ref vào)
+và sẽ ít loi hon (nếu doi so nhiều var properties hon properties của var obj các properties trong var func obj
+sẽ chỉ ref vào các properties doi so ton tai,
+nếu var obj có nhiều properties hơn các properties ko tim thấy var properties của doi so sẽ ref vào undefine
+nhung nếu sử dụng var obj func các properties doi so phải dung tên với properties var obj
 */
