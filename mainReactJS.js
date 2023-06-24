@@ -166,4 +166,12 @@ và sẽ ít loi hon (nếu doi so nhiều var properties hon properties của v
 sẽ chỉ ref vào các properties doi so ton tai,
 nếu var obj có nhiều properties hơn các properties ko tim thấy var properties của doi so sẽ ref vào undefine
 nhung nếu sử dụng var obj func các properties doi so phải dung tên với properties var obj
+
+obj.map((item)=>()) su dung () ko can return
+obj.map((item)=>{}) su dung {} can return
+
+sử dụng Promise((ok,err)=>{}) đặt trong try catch để return về loi để vào catch,
+lúc này nếu có loi sẽ dừng và return về loi và vào catch(e) var e của catch sẽ ref vào loi promise vừa return
+su dung return trong promise (return ok() hoac return err() ),
+nếu k có return ở trước sẽ tiep tuc chay cho đến hết promise()
 */
