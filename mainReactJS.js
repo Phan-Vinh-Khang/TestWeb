@@ -174,4 +174,18 @@ sử dụng Promise((ok,err)=>{}) đặt trong try catch để return về loi �
 lúc này nếu có loi sẽ dừng và return về loi và vào catch(e) var e của catch sẽ ref vào loi promise vừa return
 su dung return trong promise (return ok() hoac return err() ),
 nếu k có return ở trước sẽ tiep tuc chay cho đến hết promise()
+
+sử dụng setState khi muốn reload lại giao diện hoac khi giao diện có 1 funcreturnvelement cần data ở input của 1 funcreturnvelement khác
+lúc này cần reload để chạy lại funcreturnvelement để nhận du liệu mới
+nếu ko reload du lieu moi sẽ chỉ o datastatic
+
+chỉ cần du lieu de xử lí k cần thể hiện ra giao diện thi k can reload
+ko muốn bị mat datastatic do 1 state khác reload lai func sử dụng datastaticstate
+nếu 1 state khác reload var datastaticstate sẽ k ref vào datadefault
+(let a=''
+sau khi có data a='data', nhung 1 state nao do reload var a sẽ ref vào ''
+còn var usestate sẽ chỉ ref vào data default 1 lần
+để k mất data khi 1 state khác reload nen sử dụng datastaticstate
+)
+
 */
