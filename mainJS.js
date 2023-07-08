@@ -215,4 +215,40 @@ obj={
 }
 var sẽ ref đến static data thì dung
 var1->var2->var3->static data(dung)(var1->static data)
- */
+data doi so la 1 func
+
+cac func truyen doi so la func (co san cua js,lib,....) se hoat dong nhu sau:
+funcstatic dc call sẽ có 1 varfunc ref vào data doi so func do dev truyen vao
+sau khi func xu li xong se call varfunc(varfunc ref vao func cua dev) sau do tryen data doi so cho func dev neu co
+tiep tuc xu li func dev
+(
+    .then((data)=>{
+        consoel.log(data)
+    })
+    hoac
+    let a=(data)=>{
+        consoel.log(data)
+    }
+    .then(a)
+
+    static func then:
+    then(data1Dev,data2dev?='',data3dev?=''){//thong thuong co the func nay se k return(chay func do dev truyen vao la xong)
+        //xu li code cua func then,co the return ve data gi do
+        (data=[data1,data2,data3,data4,data5]
+        //sau khi co data sẽ dua data này cho dev de xu li
+        //var data1dev sẽ ref den datastaticfunc của dev va truyen data gi do dc return trong func then vao func cua dev
+        data1Dev(data)
+        //data1Dev(data) gan nhu se dc goi sau cung,de return ve data cua func hien tai moi co data truyen vao funcdev
+
+
+        function onChange(data1Dev){
+            //return thay doi o input
+            let a='data thay doi o input'
+            data1Dev(a)
+        }
+        onChange((dataThayDoi)=>{
+        console.log(dataThayDoi.target.value)
+        })
+    }
+)
+*/

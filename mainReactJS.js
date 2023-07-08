@@ -188,4 +188,12 @@ còn var usestate sẽ chỉ ref vào data default 1 lần
 để k mất data khi 1 state khác reload nen sử dụng datastaticstate
 )
 
+chi reload khi var state ref vao 1 datastatic mới
+(
+    state1,
+    setState(state1) như này sẽ k reload do sẽ ref lại vào datastatic cu
+    setState({...state1}) như này sẽ ok do ref vào datastatic mới
+)
+element(<span>,....) sẽ chỉ reload lại những element đã thay đổi so với element trước đó
+các element(<td>,....) ko thay đổi sẽ k bi reload
 */
