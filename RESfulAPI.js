@@ -8,4 +8,12 @@ db,db sẽ k tim dc và sẽ return err lỗi server
 thêm if(!dataUser) res.json({message:'ko tim thay user'}) se ko
 bi loi server
 )
+
+khi gửi 1 request sẽ gửi 1 objreq đến server,có thể sử dụng config để thêm các properties trong objreq
+(có thể sử dụng config để thêm các varproperti trong varproperti headers)
+varproperties sau khi dc gửi đến sẽ chuyển thành lowercase
+({
+    fileNameL'a'
+    sau khi đến server varproperti sẽ thành filename
+})
 */

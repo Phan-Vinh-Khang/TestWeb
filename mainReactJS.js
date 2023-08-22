@@ -196,4 +196,14 @@ chi reload khi var state ref vao 1 datastatic mới
 )
 element(<span>,....) sẽ chỉ reload lại những element đã thay đổi so với element trước đó
 các element(<td>,....) ko thay đổi sẽ k bi reload
+nen su dung setState neu ko co the loi 1 vai truong hop
+call funcreturnve element (<Element/>) default sẽ có 1 varproperties children
+các element,data đặt trên element (<Element> test </Element>) default properti children sẽ ref vào
+co thể ghi <Element children={data} data={<img src=''/>} />
+
+setState create 1 func tuong tu với datastatic mới ở func vừa create đó
+ở func cũ nếu vẫn còn chạy thì datastate vẫn là data cũ
+
+chỉ cần khi reload 1 funcreturnveelement ,funcreturnveelementchild dc call lai ngay thì datastaticstate sẽ k bi mat (reload 1 func nền và sẽ call lại func đặt trong func nền,lúc này datastatic sẽ k bi mat)
+nếu khi reload ma funcchild ko dc call lại thì datastaticstate ở func ko dc call lại(funcchild) sẽ bi mất(khi call lai funcchild datastatic sẽ bi mat vi da ko dc call lai 1 lần khi reload func nen)
 */
