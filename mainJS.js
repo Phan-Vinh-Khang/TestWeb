@@ -253,4 +253,6 @@ tiep tuc xu li func dev
 )
 nếu truyền 1 doi so là obj,list thì varfunc sẽ ref đến datastatic của data đó và khi có thay đổi sẽ thay đổi data ở datastatic
 nếu là 1 string,int thì chỉ có thể thay đổi ở func dc call,data ở noi gọi func sẽ k bi thay đổi
+
+những function sync sẽ cho den khi return về data moi chạy các lệnh ở sau(như await function)
 */

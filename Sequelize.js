@@ -6,4 +6,8 @@ belongsTo: Mối quan hệ này tạo ra một khóa ngoại trong mô hình ngu
 
 hasMany: Mối quan hệ này tạo ra một khóa ngoại trong mô hình đích. Ví dụ, nếu bạn có TypeProducts.hasMany(Products), Sequelize sẽ thêm một khóa ngoại typeprodid vào mô hình Products1.
 
+khi sử dụng sequelize để truy vấn table ở csdl, table ở csdl nên có 's' o cuối như products
+nếu ko có gay ra err (sequelize sẽ tự thêm 's' vào cuối mà table ở csdl lại ko có 's')
+nếu ko muốn sequelize tự thệm 's' vào cưới phải thêm freezeTableName: true
+
 */

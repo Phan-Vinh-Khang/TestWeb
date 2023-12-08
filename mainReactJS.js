@@ -206,4 +206,6 @@ setState create 1 func tuong tu với datastatic mới ở func vừa create đ�
 
 chỉ cần khi reload 1 funcreturnveelement ,funcreturnveelementchild dc call lai ngay thì datastaticstate sẽ k bi mat (reload 1 func nền và sẽ call lại func đặt trong func nền,lúc này datastatic sẽ k bi mat)
 nếu khi reload ma funcchild ko dc call lại thì datastaticstate ở func ko dc call lại(funcchild) sẽ bi mất(khi call lai funcchild datastatic sẽ bi mat vi da ko dc call lai 1 lần khi reload func nen)
+
+cb của useEffect(()=>{}) ko dc return nếu ko sẽ gay ra err
 */
