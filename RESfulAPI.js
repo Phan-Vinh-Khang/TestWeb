@@ -13,7 +13,7 @@ khi gửi 1 request sẽ gửi 1 objreq đến server,có thể sử dụng conf
 (có thể sử dụng config để thêm các varproperti trong varproperti headers)
 varproperties sau khi dc gửi đến sẽ chuyển thành lowercase
 ({
-    fileNameL'a'
+    fileName:'a'
     sau khi đến server varproperti sẽ thành filename
 })
 */

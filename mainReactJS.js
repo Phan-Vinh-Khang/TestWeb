@@ -205,7 +205,19 @@ setState create 1 func tuong tu với datastatic mới ở func vừa create đ�
 ở func cũ nếu vẫn còn chạy thì datastate vẫn là data cũ
 
 chỉ cần khi reload 1 funcreturnveelement ,funcreturnveelementchild dc call lai ngay thì datastaticstate sẽ k bi mat (reload 1 func nền và sẽ call lại func đặt trong func nền,lúc này datastatic sẽ k bi mat)
-nếu khi reload ma funcchild ko dc call lại thì datastaticstate ở func ko dc call lại(funcchild) sẽ bi mất(khi call lai funcchild datastatic sẽ bi mat vi da ko dc call lai 1 lần khi reload func nen)
+nếu khi reload ma funcchild ko dc call lại thì datastaticstate ở func ko dc call lại(funcchild) sẽ bi mất(chỉ cần 1 lần func ko dc call để mount thì lúc call lại func đó datastatic state sẽ dc init lại về default value)
 
 cb của useEffect(()=>{}) ko dc return nếu ko sẽ gay ra err
+
+các event nên dc đặt vào useEffect để có thể gỡ event đó khi element dc unmount
+và đặt vào useEffect() sẽ đảm bảo rằng khi sự kiện được thêm vào, tất cả các phần tử DOM mà sự kiện có thể tương tác đều đã sẵn sàng.
+
+ưu tiên sử dụng href để redirect,
+nếu muốn ko có hiệu ứng load sử dụng useNagavite()
+
+khi sử dụng nested route,path route parent phải có kí tự '*'
+ở đuôi để có thể truy cập vào route[i],nếu ko có thì thi nhập url như
+/order/settings nó sẽ vào route[*] do route ko có kí tự * route ở parent
+sẽ so tất cả url path với route path,và route path ở parent thì ko có bất kì path
+nào là '/order/settings' chỉ có '/order'
 */
