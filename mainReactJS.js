@@ -215,9 +215,23 @@ và đặt vào useEffect() sẽ đảm bảo rằng khi sự kiện được th
 ưu tiên sử dụng href để redirect,
 nếu muốn ko có hiệu ứng load sử dụng useNagavite()
 
+<Route></Route> tương tự như Switch case vào case nào thì sẽ hiển thị element ở case đó
+
 khi sử dụng nested route,path route parent phải có kí tự '*'
 ở đuôi để có thể truy cập vào route[i],nếu ko có thì thi nhập url như
 /order/settings nó sẽ vào route[*] do route ko có kí tự * route ở parent
 sẽ so tất cả url path với route path,và route path ở parent thì ko có bất kì path
 nào là '/order/settings' chỉ có '/order'
+
+Promise() function chỉ kết thức thực thi khi resolve() hoặc reject() dc call
+resolve() hoặc reject() dc call Promise() sẽ return về data đối số của resolve() hoặc reject()
+
+JS arity, có thế đưa data đối số nhiều hơn tham số của function,các tham số sẽ reference lần lượt,nếu muốn bỏ qua 1 vài đối số có thể sử dụng
+tham số _ để bỏ qua(_ sẽ vẫn referemce đến data đối số nhưng sẽ ko sử dụng trong define function)
+1 callback sẽ luôn đưa tối đa các đối số vào callback() và define function callback sẽ đặt số lượng tham số
+để reference vào,nếu chỉ cần đối số đầu chỉ cần đặt 1 tham số,nếu cần nhiều hơn 1 đối số thì sẽ đặt thêm tham số
+
+khi 1 define function dc thực thi nó sẽ thực thi riêng biệt như sẽ clone 1 define function từ define function và thực thi clone define function đó,
+khi data dc return liên tục về interceptor sẽ sẽ call function response() và đưa đối số vào response(data) và thực thi,nó sẽ thực thi ở
+3 define function riêng biệt,bên trong deifne function nếu cần có thể thực thi như đợi fuction đầu tiên dc thực thi xong thì mới cho deifne function thứ 2(function dc call sau function đầu tiên) dc thực thi
 */
